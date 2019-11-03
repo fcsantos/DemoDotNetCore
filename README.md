@@ -1,6 +1,5 @@
 # DemoDotNetCore
 
--EF CORE, DOTNET CORE, AUTOMAPPER, FLUENTVALIDATION
 
 CRUD
 https://www.c-sharpcorner.com/article/crud-operations-in-asp-net-core-using-entity-framework-core-code-first/

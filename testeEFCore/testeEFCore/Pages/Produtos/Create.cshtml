@@ -1,0 +1,68 @@
+﻿@page
+@model testeEFCore.Pages.Produtos.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Produto.FornecedorId" class="control-label"></label>
+                <select asp-for="Produto.FornecedorId" class ="form-control" asp-items="ViewBag.FornecedorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Nome" class="control-label"></label>
+                <input asp-for="Produto.Nome" class="form-control" />
+                <span asp-validation-for="Produto.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Descricao" class="control-label"></label>
+                <input asp-for="Produto.Descricao" class="form-control" />
+                <span asp-validation-for="Produto.Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Imagem" class="control-label"></label>
+                <input asp-for="Produto.Imagem" class="form-control" />
+                <span asp-validation-for="Produto.Imagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Valor" class="control-label"></label>
+                <input asp-for="Produto.Valor" class="form-control" />
+                <span asp-validation-for="Produto.Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.DataCadastro" class="control-label"></label>
+                <input asp-for="Produto.DataCadastro" class="form-control" />
+                <span asp-validation-for="Produto.DataCadastro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.DataAtualizacao" class="control-label"></label>
+                <input asp-for="Produto.DataAtualizacao" class="form-control" />
+                <span asp-validation-for="Produto.DataAtualizacao" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Produto.Ativo" /> @Html.DisplayNameFor(model => model.Produto.Ativo))
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

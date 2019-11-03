@@ -1,0 +1,63 @@
+﻿@page
+@model testeEFCore.Pages.Fornecedores.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
+</p>
+@if (Model.Fornecedor.Count() > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fornecedor[0].Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fornecedor[0].Documento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fornecedor[0].TipoFornecedor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fornecedor[0].Ativo)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Fornecedor)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Documento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoFornecedor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ativo)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> 
+                        @*<a asp-page="./Details" asp-route-id="@item.Id">Details</a>*@ 
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        "Não existe Fornecedor na base de dados."
+    </div>
+}
