@@ -8,10 +8,19 @@
 
 <h4>Add Fornecedor</h4>
 <hr />
+@if (@Model._errorMensagens != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @foreach (var error in Model._errorMensagens)
+        {
+            <p>@error.Mensagem</p>
+        }
+    </div>
+}
 <div class="row">
     <div class="col-md-4">
         <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>              
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Fornecedor.Nome" class="control-label"></label>
                 <input asp-for="Fornecedor.Nome" class="form-control" />
@@ -35,14 +44,14 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" /> | <a asp-page="Index">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    
 </div>
 
 @section Scripts {

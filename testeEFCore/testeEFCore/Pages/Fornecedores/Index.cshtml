@@ -2,12 +2,12 @@
 @model testeEFCore.Pages.Fornecedores.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Fornecedor(es)";
 }
 
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">Create New</a>
+    <a asp-page="Create" class="btn btn-primary">Create</a>
 </p>
 @if (Model.Fornecedor.Count() > 0)
 {
@@ -40,14 +40,13 @@
                         @Html.DisplayFor(modelItem => item.Documento)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.TipoFornecedor)
+                        @Html.DisplayFor(modelItem => item.NomeTipoFornecedor)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Ativo)
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> 
-                        @*<a asp-page="./Details" asp-route-id="@item.Id">Details</a>*@ 
                         <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>

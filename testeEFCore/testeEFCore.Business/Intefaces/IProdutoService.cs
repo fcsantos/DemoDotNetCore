@@ -6,8 +6,8 @@ namespace testeEFCore.Business.Intefaces
 {
     public interface IProdutoService : IDisposable
     {
-        Task Adicionar(Produto produto);
-        Task Atualizar(Produto produto);
-        Task Remover(Guid id);
+        Task<bool> Adicionar(Produto produto);
+        Task<bool> Atualizar(Produto produto);
+        Task<bool> Remover(Guid id);
     }
 }

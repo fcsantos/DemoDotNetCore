@@ -5,11 +5,20 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
+<br />
+@if (@Model._errorMensagens != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @foreach (var error in Model._errorMensagens)
+        {
+            <p>@error.Mensagem</p>
+        }
+    </div>
+}
 <div>
-    <h4>Fornecedor</h4>
+    <h4>Delete Fornecedor</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -37,7 +46,7 @@
             @Html.DisplayFor(model => model.Fornecedor.Ativo)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Fornecedor.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

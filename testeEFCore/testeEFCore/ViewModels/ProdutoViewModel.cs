@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace testeEFCore.ViewModels
 {
@@ -9,7 +12,6 @@ namespace testeEFCore.ViewModels
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-
         public Guid FornecedorId { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
@@ -25,6 +27,7 @@ namespace testeEFCore.ViewModels
         public string Imagem { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [DataType(DataType.Currency)]
         public decimal Valor { get; set; }
 
         [ScaffoldColumn(false)]
@@ -32,6 +35,9 @@ namespace testeEFCore.ViewModels
 
         [ScaffoldColumn(false)]
         public DateTime DataAtualizacao { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string DataAtualizacaoFormat { get; set; }
 
         public bool Ativo { get; set; }
 

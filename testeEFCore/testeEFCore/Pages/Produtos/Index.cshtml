@@ -2,12 +2,12 @@
 @model testeEFCore.Pages.Produtos.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Produto(s)";
 }
 
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">Create New</a>
+    <a asp-page="Create" class="btn btn-primary">Create</a>
 </p>
 @if (Model.Produto.Count() > 0)
 {
@@ -61,7 +61,7 @@
                         @Html.DisplayFor(modelItem => item.DataCadastro)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DataAtualizacao)
+                        @Html.DisplayFor(modelItem => item.DataAtualizacaoFormat)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Ativo)
@@ -70,9 +70,8 @@
                         @Html.DisplayFor(modelItem => item.Fornecedor)
                     </td>
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             }

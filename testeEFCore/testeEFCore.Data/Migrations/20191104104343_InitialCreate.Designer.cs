@@ -10,7 +10,7 @@ using testeEFCore.Data.Context;
 namespace testeEFCore.Data.Migrations
 {
     [DbContext(typeof(MeuDbContext))]
-    [Migration("20191103003709_InitialCreate")]
+    [Migration("20191104104343_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,10 +85,10 @@ namespace testeEFCore.Data.Migrations
 
                     b.Property<bool>("Ativo");
 
-                    b.Property<DateTime>("DataAtualizacao")
+                    b.Property<DateTime?>("DataAtualizacao")
                         .HasColumnType("DateTime");
 
-                    b.Property<DateTime>("DataCadastro")
+                    b.Property<DateTime?>("DataCadastro")
                         .HasColumnType("DateTime");
 
                     b.Property<string>("Descricao")

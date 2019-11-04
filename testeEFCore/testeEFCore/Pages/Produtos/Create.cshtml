@@ -5,17 +5,26 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Produto</h4>
+<h4>Add Produto</h4>
 <hr />
+@if (@Model._errorMensagens != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @foreach (var error in Model._errorMensagens)
+        {
+            <p>@error.Mensagem</p>
+        }
+    </div>
+}
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Produto.FornecedorId" class="control-label"></label>
-                <select asp-for="Produto.FornecedorId" class ="form-control" asp-items="ViewBag.FornecedorId"></select>
+                <label asp-for="Produto.Fornecedor" class="control-label"></label>
+                <select asp-for="Produto.FornecedorId" class="form-control" asp-items="ViewBag.Fornecedores">
+                    <option value="">-- Select Fornecedor --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Produto.Nome" class="control-label"></label>
@@ -34,10 +43,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Produto.Valor" class="control-label"></label>
-                <input asp-for="Produto.Valor" class="form-control" />
+                <input type="number" asp-for="Produto.Valor" class="form-control" />
                 <span asp-validation-for="Produto.Valor" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Produto.DataCadastro" class="control-label"></label>
                 <input asp-for="Produto.DataCadastro" class="form-control" />
                 <span asp-validation-for="Produto.DataCadastro" class="text-danger"></span>
@@ -46,10 +55,10 @@
                 <label asp-for="Produto.DataAtualizacao" class="control-label"></label>
                 <input asp-for="Produto.DataAtualizacao" class="form-control" />
                 <span asp-validation-for="Produto.DataAtualizacao" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Produto.Ativo" /> @Html.DisplayNameFor(model => model.Produto.Ativo))
+                    <input class="form-check-input" asp-for="Produto.Ativo" /> @Html.DisplayNameFor(model => model.Produto.Ativo)
                 </label>
             </div>
             <div class="form-group">

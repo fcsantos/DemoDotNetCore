@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using testeEFCore.Business.Intefaces;
 using testeEFCore.Business.Models;
-using testeEFCore.Data.Context;
+using testeEFCore.Business.Notificacoes;
 using testeEFCore.ViewModels;
 
 namespace testeEFCore.Pages.Fornecedores
@@ -18,6 +15,8 @@ namespace testeEFCore.Pages.Fornecedores
         private readonly IFornecedorService _fornecedorService;
         private readonly INotificador _notificador;
         private readonly IMapper _mapper;
+
+        public IList<Notificacao> _errorMensagens { get; set; }
 
         public CreateModel(INotificador notificador,
                            IFornecedorService fornecedorService,
@@ -44,7 +43,7 @@ namespace testeEFCore.Pages.Fornecedores
             }
 
             var result = await _fornecedorService.Adicionar(_mapper.Map<Fornecedor>(Fornecedor));
-            if (result == false) { Fornecedor.Mensagens = _notificador.ObterNotificacoes(); return null; }
+            if (result == false) { _errorMensagens = _notificador.ObterNotificacoes(); return null; }
 
             return RedirectToPage("./Index");
         }

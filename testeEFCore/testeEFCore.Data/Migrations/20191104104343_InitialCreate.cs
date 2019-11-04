@@ -55,8 +55,8 @@ namespace testeEFCore.Data.Migrations
                     Descricao = table.Column<string>(type: "nvarchar(1000)", nullable: false),
                     Imagem = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Valor = table.Column<decimal>(nullable: false),
-                    DataCadastro = table.Column<DateTime>(type: "DateTime", nullable: false),
-                    DataAtualizacao = table.Column<DateTime>(type: "DateTime", nullable: false),
+                    DataCadastro = table.Column<DateTime>(type: "DateTime", nullable: true),
+                    DataAtualizacao = table.Column<DateTime>(type: "DateTime", nullable: true),
                     Ativo = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>

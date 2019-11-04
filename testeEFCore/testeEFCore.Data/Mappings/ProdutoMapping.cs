@@ -24,9 +24,11 @@ namespace testeEFCore.Data.Mappings
                 .HasColumnType("nvarchar(100)");
 
             builder.Property(p => p.DataCadastro)
+                .IsRequired(false)
                 .HasColumnType("DateTime");
 
             builder.Property(p => p.DataAtualizacao)
+                .IsRequired(false)
                 .HasColumnType("DateTime");
 
             builder.ToTable("Produto");

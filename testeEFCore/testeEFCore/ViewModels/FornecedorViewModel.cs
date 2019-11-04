@@ -27,7 +27,7 @@ namespace testeEFCore.ViewModels
 
         public string NomeTipoFornecedor { get; set; }
 
-        public List<Notificacao> Mensagens { get; set; }
+        public IList<Notificacao> Mensagens { get; set; }
 
         public IEnumerable<ProdutoViewModel> Produtos { get; set; }
     }

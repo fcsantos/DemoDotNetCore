@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using testeEFCore.Business.Models;
 
 namespace testeEFCore.Data.Context
@@ -28,13 +30,13 @@ namespace testeEFCore.Data.Context
 
             base.OnModelCreating(modelBuilder);
         }
-
         public override int SaveChanges()
         {
             foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
             {
                 if (entry.State == EntityState.Added)
                 {
+                    entry.Property("DataAtualizacao").IsModified = false;
                     entry.Property("DataCadastro").CurrentValue = DateTime.Now;
                 }
 
@@ -47,5 +49,24 @@ namespace testeEFCore.Data.Context
 
             return base.SaveChanges();
         }
+        //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        //{
+        //    foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+        //    {
+        //        if (entry.State == EntityState.Added)
+        //        {
+        //            entry.Property("DataAtualizacao").IsModified = false;
+        //            entry.Property("DataCadastro").CurrentValue = DateTime.Now.Date;
+        //        }
+
+        //        if (entry.State == EntityState.Modified)
+        //        {
+        //            entry.Property("DataCadastro").IsModified = false;
+        //            entry.Property("DataAtualizacao").CurrentValue = DateTime.Now;
+        //        }
+        //    }
+
+        //    return base.SaveChangesAsync(cancellationToken);
+        //}
     }
 }

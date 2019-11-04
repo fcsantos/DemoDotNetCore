@@ -1,14 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using testeEFCore.Business.Intefaces;
-using testeEFCore.Business.Models;
-using testeEFCore.Data.Context;
 using testeEFCore.ViewModels;
 
 namespace testeEFCore.Pages.Fornecedores

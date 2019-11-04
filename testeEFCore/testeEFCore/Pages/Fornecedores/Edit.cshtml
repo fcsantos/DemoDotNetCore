@@ -5,10 +5,24 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>Fornecedor</h4>
+<h4>Edit Fornecedor</h4>
 <hr />
+@if (@Model._errorMensagens != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @foreach (var error in Model._errorMensagens)
+        {
+            <p>@error.Mensagem</p>
+        }
+    </div>
+}
+else if (!string.IsNullOrEmpty(Model._errorException))
+{
+    <div class="alert alert-danger" role="alert">
+        <p>@Model._errorException</p>
+    </div>
+}
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -37,14 +51,14 @@
             </div>
             <input type="hidden" asp-for="Fornecedor.Id" />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" /> | <a asp-page="./Index">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    
 </div>
 
 @section Scripts {

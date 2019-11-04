@@ -3,6 +3,14 @@
 
 CRUD
 https://www.c-sharpcorner.com/article/crud-operations-in-asp-net-core-using-entity-framework-core-code-first/
+https://docs.microsoft.com/en-us/aspnet/core/mvc/views/working-with-forms?view=aspnetcore-3.0#the-validation-tag-helpers
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-3.0&tabs=visual-studio
+
+Scaffolding
+https://duckduckgo.com/?q=create+razor+page+scaffold+item+in+dotnet+core&t=brave&ia=web
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/page?view=aspnetcore-3.0&tabs=visual-studio
+https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Data/RazorPagesMovieContext.cs
+https://www.learnrazorpages.com/miscellaneous/scaffolding
 
 
 Unit of Work

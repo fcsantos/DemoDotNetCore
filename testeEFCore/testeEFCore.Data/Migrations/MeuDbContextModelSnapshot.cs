@@ -83,10 +83,10 @@ namespace testeEFCore.Data.Migrations
 
                     b.Property<bool>("Ativo");
 
-                    b.Property<DateTime>("DataAtualizacao")
+                    b.Property<DateTime?>("DataAtualizacao")
                         .HasColumnType("DateTime");
 
-                    b.Property<DateTime>("DataCadastro")
+                    b.Property<DateTime?>("DataCadastro")
                         .HasColumnType("DateTime");
 
                     b.Property<string>("Descricao")

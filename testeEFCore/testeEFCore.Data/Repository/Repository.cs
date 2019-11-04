@@ -39,7 +39,7 @@ namespace testeEFCore.Data.Repository
         public virtual async Task Adicionar(TEntity entity)
         {
             DbSet.Add(entity);
-            await SaveChanges();
+            var resultado = await SaveChanges();
         }
 
         public virtual async Task Atualizar(TEntity entity)
@@ -50,13 +50,15 @@ namespace testeEFCore.Data.Repository
 
         public virtual async Task Remover(Guid id)
         {
-            DbSet.Remove(new TEntity { Id = id });
+            var entity = await ObterPorId(id);
+            DbSet.Remove(entity);
             await SaveChanges();
         }
 
         public async Task<int> SaveChanges()
         {
-            return await Db.SaveChangesAsync();
+            var resultado = Db.SaveChanges();
+            return resultado;
         }
 
         public void Dispose()

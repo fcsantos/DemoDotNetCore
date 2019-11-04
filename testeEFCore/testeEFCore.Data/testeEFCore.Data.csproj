@@ -11,6 +11,8 @@
     <Compile Remove="Migrations\20191102154527_Script-Migration.Designer.cs" />
     <Compile Remove="Migrations\20191102162424_AlterColumnsType.cs" />
     <Compile Remove="Migrations\20191102162424_AlterColumnsType.Designer.cs" />
+    <Compile Remove="Migrations\20191103003709_InitialCreate.cs" />
+    <Compile Remove="Migrations\20191103003709_InitialCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +27,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\testeEFCore.Business\testeEFCore.Business.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
